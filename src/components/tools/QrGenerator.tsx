@@ -1,11 +1,10 @@
 'use client'
-import { useState, useEffect, useRef } from 'react'
+import { useState } from 'react'
 
 export default function QrGenerator() {
   const [input, setInput] = useState('https://example.com')
   const [size, setSize] = useState(200)
   const [type, setType] = useState<'url' | 'text' | 'email' | 'phone'>('url')
-  const imgRef = useRef<HTMLImageElement>(null)
 
   const prefixes: Record<string, string> = {
     url: '',
@@ -53,7 +52,9 @@ export default function QrGenerator() {
       </div>
 
       <div>
-        <label className="label">{type === 'url' ? 'URL' : type === 'email' ? 'Email Address' : type === 'phone' ? 'Phone Number' : 'Text'}</label>
+        <label className="label">
+          {type === 'url' ? 'URL' : type === 'email' ? 'Email Address' : type === 'phone' ? 'Phone Number' : 'Text'}
+        </label>
         <input
           className="input-base"
           type="text"
@@ -65,8 +66,9 @@ export default function QrGenerator() {
 
       <div>
         <label className="label">Size: {size}×{size}px</label>
-        <input type="range" min={100} max={400} step={50} value={size}
-          onChange={e => setSize(+e.target.value)}
+        <input
+          type="range" min={100} max={400} step={50} value={size}
+          onChange={e => setSize(Number(e.target.value))}
           style={{ width: '100%', accentColor: 'var(--accent)' }}
         />
       </div>
@@ -80,8 +82,9 @@ export default function QrGenerator() {
             padding: '1rem',
             display: 'inline-block',
           }}>
+            {/* img is intentional here — next/image doesn't support external dynamic URLs without config */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img ref={imgRef} src={qrUrl} alt="QR Code" width={size} height={size} />
+            <img src={qrUrl} alt="QR Code" width={size} height={size} style={{ display: 'block' }} />
           </div>
           <button className="btn-primary" onClick={download}>Download PNG</button>
         </div>

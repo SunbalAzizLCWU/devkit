@@ -2,34 +2,36 @@
 import { useState } from 'react'
 import CopyButton from '../ui/CopyButton'
 
+type Mode = 'encode' | 'decode'
+
+function process(input: string, mode: Mode): { result: string; error: string } {
+  if (!input) return { result: '', error: '' }
+  try {
+    if (mode === 'encode') {
+      return { result: btoa(unescape(encodeURIComponent(input))), error: '' }
+    } else {
+      return { result: decodeURIComponent(escape(atob(input.trim()))), error: '' }
+    }
+  } catch {
+    return { result: '', error: mode === 'decode' ? 'Invalid Base64 string.' : 'Encoding failed.' }
+  }
+}
+
 export default function Base64Tool() {
   const [input, setInput] = useState('')
-  const [output, setOutput] = useState('')
-  const [mode, setMode] = useState<'encode' | 'decode'>('encode')
-  const [error, setError] = useState('')
+  const [mode, setMode] = useState<Mode>('encode')
 
-  const process = () => {
-    setError('')
-    try {
-      if (mode === 'encode') {
-        setOutput(btoa(unescape(encodeURIComponent(input))))
-      } else {
-        setOutput(decodeURIComponent(escape(atob(input))))
-      }
-    } catch {
-      setError(mode === 'decode' ? 'Invalid Base64 string' : 'Encoding failed')
-      setOutput('')
-    }
-  }
+  const { result: output, error } = process(input, mode)
 
   const swap = () => {
+    if (!output) return
     setInput(output)
-    setOutput('')
-    setMode(m => m === 'encode' ? 'decode' : 'encode')
+    setMode(m => (m === 'encode' ? 'decode' : 'encode'))
   }
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      {/* Mode + actions */}
       <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
         {(['encode', 'decode'] as const).map(m => (
           <button
@@ -46,12 +48,16 @@ export default function Base64Tool() {
               cursor: 'pointer',
               textTransform: 'capitalize',
             }}
-          >{m}</button>
+          >
+            {m}
+          </button>
         ))}
-        <button className="btn-primary" onClick={process}>{mode === 'encode' ? 'Encode →' : 'Decode →'}</button>
-        {output && <button className="btn-secondary" onClick={swap}>⇄ Swap</button>}
+        {output && (
+          <button className="btn-secondary" onClick={swap}>⇄ Swap</button>
+        )}
       </div>
 
+      {/* Panels — live: output recomputes as you type */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
         <div>
           <label className="label">{mode === 'encode' ? 'Plain Text' : 'Base64 Input'}</label>
@@ -72,10 +78,13 @@ export default function Base64Tool() {
               rows={12}
               value={error || output}
               readOnly
-              placeholder="Result will appear here..."
-              style={{ resize: 'vertical', color: error ? '#EF4444' : 'var(--text-primary)' }}
+              placeholder="Result appears here..."
+              style={{
+                resize: 'vertical',
+                color: error ? '#EF4444' : 'var(--text-primary)',
+              }}
             />
-            {output && <CopyButton text={output} />}
+            {output && !error && <CopyButton text={output} />}
           </div>
         </div>
       </div>

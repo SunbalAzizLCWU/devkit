@@ -30,8 +30,15 @@ export default function JsonFormatter() {
     }
   }
 
+  const clear = () => {
+    setInput('')
+    setOutput('')
+    setError('')
+  }
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      {/* Toolbar */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
           <label className="label" style={{ margin: 0 }}>Indent</label>
@@ -49,14 +56,17 @@ export default function JsonFormatter() {
                 fontWeight: 500,
                 cursor: 'pointer',
               }}
-            >{n}</button>
+            >
+              {n}
+            </button>
           ))}
         </div>
         <button className="btn-primary" onClick={format}>Format</button>
         <button className="btn-secondary" onClick={minify}>Minify</button>
-        <button className="btn-secondary" onClick={() => { setInput(''); setOutput(''); setError('') }}>Clear</button>
+        <button className="btn-secondary" onClick={clear}>Clear</button>
       </div>
 
+      {/* Editor panels */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
         <div>
           <label className="label">Input JSON</label>
@@ -65,7 +75,7 @@ export default function JsonFormatter() {
             rows={18}
             value={input}
             onChange={e => setInput(e.target.value)}
-            placeholder='Paste your JSON here...'
+            placeholder={'{\n  "name": "world"\n}'}
             style={{ resize: 'vertical' }}
           />
         </div>
@@ -81,9 +91,9 @@ export default function JsonFormatter() {
                 resize: 'vertical',
                 color: error ? '#EF4444' : 'var(--text-primary)',
               }}
-              placeholder="Formatted JSON will appear here..."
+              placeholder="Formatted JSON appears here..."
             />
-            {output && <CopyButton text={output} />}
+            {output && !error && <CopyButton text={output} />}
           </div>
         </div>
       </div>
