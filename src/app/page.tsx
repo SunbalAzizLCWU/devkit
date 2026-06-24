@@ -181,7 +181,11 @@ export default function HomePage() {
         marginTop: '3rem',
       }}>
         <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
-          DevKit — {TOOLS.length} tools · All processing happens in your browser · No tracking
+          DevKit: {TOOLS.length} tools · All processing happens in your browser · No tracking.
+          <br />
+          <span style={{ display: 'inline-block', marginTop: '0.5rem' }}>
+            Built by <a href="https://github.com/SunbalAzizLCWU" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)', fontWeight: 600, textDecoration: 'none' }}>@SunbalAziz</a> while high on ☕.
+          </span>
         </p>
       </footer>
     </div>

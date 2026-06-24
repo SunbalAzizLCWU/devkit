@@ -3,7 +3,7 @@ import './globals.css'
 import { Providers } from './providers'
 
 export const metadata: Metadata = {
-  title: 'DevKit — Tools for Developers & Everyone',
+  title: 'DevKit Tools for Developers & Everyone',
   description: 'A curated collection of fast, free, privacy-friendly tools — JSON formatter, Base64, UUID, password generator, QR codes, and more.',
 }
 

@@ -44,7 +44,7 @@ export default function Navbar() {
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           <a
-            href="https://github.com/yourusername/devkit"
+            href="https://github.com/SunbalAzizLCWU/devkit"
             target="_blank"
             rel="noopener noreferrer"
             style={{
