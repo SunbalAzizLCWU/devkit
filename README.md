@@ -77,9 +77,9 @@ graph TD
 * ✅ **JSON Formatter & Validator:** Lint, format, and strictly validate JSON payloads.
 * ✅ **JWT Decoder:** Safely decode JSON Web Tokens without exposing secrets.
 * ✅ **UUID Generator:** Instantly generate v4 UUIDs.
-* 🚧 **Cron Expression Parser:** *(In Development)* Human-readable cron schedule translator.
-* 🚧 **Color Converter:** *(In Development)* HEX/RGB/HSL/CMYK interoperability.
-* 🚧 **Text Diff Checker:** *(In Development)* Line-by-line code difference analysis.
+* ✅ **Cron Expression Parser:** Human-readable cron schedule translator.
+* ✅ **Color Converter:** HEX/RGB/HSL/CMYK interoperability.
+* ✅ **Text Diff Checker:** Line-by-line code difference analysis.
 
 ### 📝 Text Manipulation
 
@@ -88,8 +88,8 @@ graph TD
 * ✅ **Case Converter:** Transform text instantly (camelCase, snake_case, PascalCase, kebab-case).
 * ✅ **Word & Character Counter:** Real-time metrics and reading time estimation.
 * ✅ **Lorem Ipsum Generator:** Configurable placeholder text generation.
-* 🚧 **Markdown Preview:** *(In Development)* GitHub-flavored markdown rendering.
-* 🚧 **String Escape/Unescape:** *(In Development)* Safe formatting for JSON, HTML, and SQL strings.
+* ✅ **Markdown Preview:** GitHub-flavored markdown rendering.
+* ✅ **String Escape/Unescape:** Safe formatting for JSON, HTML, and SQL strings.
 
 ### 🔐 Security & Cryptography
 
@@ -98,7 +98,7 @@ graph TD
 * ✅ **Password Generator:** Entropy-based generation with a visual strength meter.
 * ✅ **Hash Generator:** Compute SHA-1, SHA-256, SHA-384, and SHA-512 hashes instantly.
 * ✅ **Base64 Encoder / Decoder:** Reliable binary-to-text encoding.
-* 🚧 **Bcrypt Hash & Verify:** *(In Development)* Secure password salting and hashing.
+* ✅ **Bcrypt Hash & Verify:** Secure password salting and hashing.
 
 ### 🔄 Data Converters
 
@@ -107,9 +107,9 @@ graph TD
 * ✅ **Unix Timestamp Converter:** Epoch-to-human-readable and timezone translations.
 * ✅ **Number Base Converter:** Binary, Octal, Decimal, and Hexadecimal manipulation.
 * ✅ **URL Encode / Decode:** Safe URI component parsing.
-* 🚧 **JSON ↔ YAML:** *(In Development)* Cross-format object conversion.
-* 🚧 **CSV ↔ JSON:** *(In Development)* Tabular to object array translation.
-* 🚧 **HTML Entity Encode:** *(In Development)* Secure character escaping.
+* ✅ **JSON ↔ YAML:** Cross-format object conversion.
+* ✅ **CSV ↔ JSON:** Tabular to object array translation.
+* ✅ **HTML Entity Encode:** Secure character escaping.
 
 ### 🌐 Network & Media
 
@@ -117,9 +117,9 @@ graph TD
 
 * ✅ **HTTP Status Codes:** Comprehensive reference library for REST APIs.
 * ✅ **QR Code Generator:** Instant matrix barcode creation for URLs and text.
-* 🚧 **IP Lookup:** *(In Development)* Geolocation and ISP routing data.
-* 🚧 **URL Parser:** *(In Development)* Scheme, host, path, and query parameter breakdown.
-* 🚧 **SVG Viewer:** *(In Development)* Scalable vector graphic preview and code extraction.
+* ✅ **IP Lookup:** Geolocation and ISP routing data.
+* ✅ **URL Parser:** Scheme, host, path, and query parameter breakdown.
+* ✅ **SVG Viewer:** Scalable vector graphic preview and code extraction.
 
 ### 🧠 Agentic AI Suite (Powered by Anthropic)
 
