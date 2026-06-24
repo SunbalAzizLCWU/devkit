@@ -6,7 +6,7 @@
 
 *All processing happens securely in your browser. Zero tracking. Zero server-side logging.*
 
-[Explore the Tools](https://www.google.com/search?q=%23-tool-catalog) • [Architecture](https://www.google.com/search?q=%23-system-architecture) • [Deployment](https://www.google.com/search?q=%23-deployment-pipeline) • [Contributing](https://www.google.com/search?q=%23-contributing)
+[Explore the Tools](#-tool-catalog) • [Architecture](#-system-architecture) • [Deployment](#-deployment-pipeline) • [Contributing](#-contributing)
 
 </div>
 ---
@@ -149,7 +149,7 @@ Getting DevKit running locally is frictionless. Ensure you have Node.js 18+ inst
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/yourusername/devkit.git
+git clone https://github.com/SunbalAzizLCWU/devkit.git
 cd devkit
 
 # 2. Install dependencies
@@ -187,7 +187,7 @@ sequenceDiagram
 ### Deployment Steps:
 
 1. Push your local repository to GitHub.
-2. Navigate to your [Cloudflare Dashboard](https://www.google.com/search?q=https://dash.cloudflare.com/) → **Workers & Pages**.
+2. Navigate to your [Cloudflare Dashboard](https://dash.cloudflare.com/) → **Workers & Pages**.
 3. Click **Create application** → **Pages** → **Connect to Git**.
 4. Select the DevKit repository.
 5. Configure the build settings:
